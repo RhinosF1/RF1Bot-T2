@@ -1,3 +1,5 @@
+##Source - https://github.com/gkbrk/JustIRC
+##Only code tested is this version
 import socket
 import time
 
