@@ -1,5 +1,7 @@
 ##Source - https://github.com/gkbrk/JustIRC
 ##Only code tested is this version
+##THIS FILE IS NOT LICENSED UNDER GPL 3.0 - JustIRC is licensed under the MIT License ##
+### DO NOT CHANGE THIS FILE - COMMIT TO JustIRC and raise an issue to push latest version of JustIRC to here
 import socket
 import time
 
