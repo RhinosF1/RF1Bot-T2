@@ -1,4 +1,3 @@
-# Pastebin xEWKC8sO
 #!/usr/bin/env python3.6
 import configparser, json, mwclient
 from mwclient import errors
