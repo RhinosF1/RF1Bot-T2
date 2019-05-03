@@ -35,7 +35,6 @@ def save_wrap(site):
     page4 = site.Pages[pagename4]
     page5 = site.Pages[pagename5]
     pagec1 = open('statuschange.txt', 'r') #reads files for those pages - keep or change names but ones with these names are included in the repo
-    print('Line 12')
     content1 = pagec1.read()
     pagec2 = open('statusmonitor.txt', 'r')
     content2 = pagec2.read()
@@ -45,7 +44,7 @@ def save_wrap(site):
     content4 = pagec4.read()
     pagec5 = open('clog.txt', 'r')
     content5 = pagec5.read()
-    print('Line 13')
+    print('Found all files')
     print('Content: ' + content1)
     pages = pagename1
     save_edit(page1, site, content1) #calls edit function ## hash out any not needed ##
@@ -57,15 +56,14 @@ def save_wrap(site):
     save_edit(page4, site, content4)
     pages = pagename5
     save_edit(page5, site, content5)
-    print('Line 17')
+    print('All edits saved')
 
 def save_edit(page, site, content):
     import time
     global senders
     global pages
     time.sleep(5)
-    edit_summary = """BOT: Updating script components ([[User:#Tasks|Task 2]]) - Requested by  using  on chat.freenode.net""" #complete this sentence or use variables if multiple operators
-    times = 0
+    edit_summary = "BOT: Updating script components ([[User:#Tasks|Task 2]]) - Requested by" + senders + "  using  on chat.freenode.net"
     while True:
         if times > 1:
             break
@@ -75,9 +73,11 @@ def save_edit(page, site, content):
             bot.send_message('', senders + ": I've updated " + pages ) #add channel name as first param
         except errors.ProtectedPageError:
             print('Could not edit ' + page + ' due to protection')
+            bot.send_message('', senders + ": Edit to " + pages + "failed due to protection")
             times += 1
         except errors.EditError:
             print("Error")
+            bot.send_message('', sender + 'Bot encountered unknown error'
             times += 1
             time.sleep(5)  # sleep for 5 seconds before trying again
             continue
